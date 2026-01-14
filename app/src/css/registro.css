@@ -1,0 +1,58 @@
+/* Botões de aba */
+.tab-btn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-bottom: 2px solid var(--cor-carvao);
+  font-weight: 500;
+  color: #4B5563;
+  /* equivalente ao Tailwind text-gray-600 */
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Aba ativa */
+.active-tab {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Campos de entrada */
+.input-field {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #D1D5DB;
+  /* Tailwind border-gray-300 */
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* Botão de envio */
+.submit-btn {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--color-primary-dark);
+}

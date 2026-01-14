@@ -1,0 +1,6 @@
+*vendor/
+*node_modules/
+*composer.lock
+*/env.php
+*/.vscode/
+*.bak
