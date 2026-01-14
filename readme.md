@@ -163,7 +163,7 @@ Especialista em arquitetura PHP e sistemas sob medida
 ## 🔮 Roadmap
 
 - [x] **CLI oficial do Nexus (Basic)**
-- [] **Middleware HTTP**
-- [] **Autenticação JWT nativa**
-- [] **Camada de Events & Listeners**
-- [] **Documentação oficial**
+- [ ] **Middleware HTTP**
+- [ ] **Autenticação JWT nativa**
+- [ ] **Camada de Events & Listeners**
+- [ ] **Documentação oficial**
