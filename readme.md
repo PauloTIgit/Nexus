@@ -1,6 +1,8 @@
-# 🚀 Nexus Framework — v4
+![Nexus Framework Logo](app/src/images/logo.png)
 
-![Status](<https://img.shields.io/badge/status-ativo%20(v4)-brightgreen>)
+# 🚀 Nexus Framework
+
+![Status](<https://img.shields.io/badge/status-ativo%20(v1)-brightgreen>)
 ![PHP](https://img.shields.io/badge/PHP-8.1%2B-blue)
 ![Architecture](https://img.shields.io/badge/Architecture-MVC%20Modular-purple)
 ![License](https://img.shields.io/badge/license-Proprietário-red)
@@ -44,56 +46,61 @@ A estrutura foi desenhada para garantir **baixo acoplamento**, **alta coesão** 
 
 ---
 
-## 📂 Estrutura de Diretórios — v4
+## 📂 Estrutura de Diretórios
 
 ```bash
 /
-├── api/
-│   └── v1/
-│       ├── app/
-│       │   ├── Controller/
-│       │   ├── DTO/
-│       │   ├── Model/
-│       │   ├── Repository/
-│       │   ├── Service/
-│       │   └── Route/
-│       └── src/
-│           ├── logs/
-│           └── uploads/
-│
-├── web/
-│   ├── app/
-│   │   ├── Controller/
-│   │   ├── Model/
-│   │   ├── Route/
-│   │   ├── View/
-│   │   └── Components/
-│   └── src/
-│       ├── css/
-│       ├── js/
-│       ├── images/
-│       └── fonts/
-│
-├── resource/
-│   ├── data/
-│   │   └── schema.sql
-│   ├── config/
-│   └── env.php
-│
-├── storage/
-│   ├── cache/
-│   └── logs/
-│
-├── vendor/
-│
-├── .env
-├── composer.json
-└── index.php
+├─ app/
+│  ├─ controller/
+│  │  ├─ Core.Controller.php
+│  │  ├─ Email.Controller.php
+│  │  └─ Log.Controller.php
+│  ├─ migration/
+│  │  ├─ 001_create_migrations_table.sql
+│  │  ├─ 002_create_users.sql
+│  │  ├─ 003_create_roles.sql
+│  │  ├─ 004_create_user_roles.sql
+│  │  └─ 005_create_audit_logs.sql
+│  ├─ model/
+│  │  ├─ Core.class.php
+│  │  ├─ Kernel.class.php
+│  │  ├─ Ligacao.class.php
+│  │  ├─ Log.class.php
+│  │  ├─ MigrateCommand.class.php
+│  │  ├─ MigrateFreshCommand.class.php
+│  │  ├─ Migration.class.php
+│  │  ├─ SeedCommand.class.php
+│  │  └─ StartCommand.class.php
+│  ├─ route/
+│  │  ├─ api.php
+│  │  └─ web.php
+│  ├─ seeds/
+│  │  ├─ 001_seed_roles.sql
+│  │  ├─ 002_seed_admin_user.sql
+│  │  └─ 003_seed_user_roles.sql
+│  ├─ service/
+│  ├─ src/
+│  │  ├─ components/
+│  │  ├─ css/
+│  │  ├─ fonts/
+│  │  ├─ images/
+│  │  └─ js/
+│  └─ view/
+├─ bootstrap/
+│  └─ cli.php
+├─ resource/
+│  ├─ data/
+│  │  └─ consultas.sql
+│  └─ envexemple.php // altera para env.php
+├─ storage/
+│  ├─ cache/
+│  └─ logs/
+│  └─ autoload.php
 ```
 
 ## 🧩 Camadas do Sistema
 
-O **Nexus Framework v4** adota uma arquitetura **MVC Modular**, baseada em princípios consolidados de engenharia de software:
+O **Nexus Framework** adota uma arquitetura **MVC Modular**, baseada em princípios consolidados de engenharia de software:
 
 ### 📌 Controller
 
@@ -155,7 +162,7 @@ Especialista em arquitetura PHP e sistemas sob medida
 
 ## 🔮 Roadmap
 
-- [] **CLI oficial do Nexus (nexus make:controller)**
+- [x] **CLI oficial do Nexus (Basic)**
 - [] **Middleware HTTP**
 - [] **Autenticação JWT nativa**
 - [] **Camada de Events & Listeners**
