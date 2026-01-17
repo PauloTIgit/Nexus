@@ -3,8 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php';
-
 function Validador($input)
 {
   if ($input == null || $input == '' || $input == '‎' || empty($input)) {

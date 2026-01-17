@@ -4,10 +4,10 @@ class Core
 {
   public function __construct()
   {
-    include __DIR__ . "\../../resource/env.php";
-    include __DIR__ . '\../controller/Core.Controller.php';
-    include __DIR__ . '\../route/web.php';
-    include __DIR__ . '\../route/api.php';
+    include __DIR__ . "/../../resource/env.php";
+    include __DIR__ . '/../controller/Core.Controller.php';
+    include __DIR__ . '/../route/web.php';
+    include __DIR__ . '/../route/api.php';
 
     $rota = substr($_SERVER['REQUEST_URI'], strrpos($_SERVER['REQUEST_URI'], '/'));
 

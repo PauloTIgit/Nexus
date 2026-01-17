@@ -64,42 +64,34 @@ function router($router)
  * @param string $padrao Padrão da rota ex: /cnpj/{cnpj}
  * @param callable $callback Função a executar quando a rota corresponder
  */
-function rota($padrao, $callback)
+function rota(string $padrao, callable $callback)
 {
-  // Pega a URI completa
   $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-  $scriptName = dirname($_SERVER['SCRIPT_NAME']); // ex: /Projetos/SifferOne/api/v1
 
-  // Remove o caminho base do projeto da URI
-  if (strpos($uri, $scriptName) === 0) {
-    $uri = substr($uri, strlen($scriptName));
+  $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+  if ($basePath !== '' && strpos($uri, $basePath) === 0) {
+    $uri = substr($uri, strlen($basePath));
   }
 
-  if ($uri !== '/') {
-    $uri = rtrim($uri, '/');
-    $padrao = rtrim($padrao, '/');
-  }
+  // Normalização consistente
+  $uri = '/' . trim($uri, '/');
+  $padrao = '/' . trim($padrao, '/');
 
-  $_SESSION['dadosRouteAPI'][] = $padrao;
+  if ($uri === '//') $uri = '/';
+  if ($padrao === '//') $padrao = '/';
 
-  // Converte /cnpj/{cnpj} em expressão regex
-  $regex = preg_replace('#\{([a-zA-Z0-9_]+)\}#', '([^/]+)', $padrao);
-  $regex = "#^" . $regex . "$#";
-
+  // Captura parâmetros
   preg_match_all('#\{([a-zA-Z0-9_]+)\}#', $padrao, $parametros);
+
+  $regex = preg_replace('#\{[a-zA-Z0-9_]+\}#', '([^/]+)', $padrao);
+  $regex = '#^' . $regex . '$#';
 
   if (preg_match($regex, $uri, $matches)) {
     array_shift($matches);
 
     $args = [];
-    if (!empty($parametros[1])) {
-      foreach ($parametros[1] as $i => $nome) {
-        $args[$nome] = $matches[$i];
-      }
-    }
-
-    if ($args == []) {
-      $callback();
+    foreach ($parametros[1] as $i => $nome) {
+      $args[$nome] = $matches[$i];
     }
 
     call_user_func_array($callback, $args);
