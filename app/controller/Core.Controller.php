@@ -10,8 +10,8 @@
  */
 function component($component)
 {
-  if (file_exists(__DIR__ . "\../src/components/$component.php")) {
-    include_once __DIR__ . "\../src/components/$component.php";
+  if (file_exists(__DIR__ . "/../src/components/$component.php")) {
+    include_once __DIR__ . "/../src/components/$component.php";
   } else {
     echo "<p>Erro no componente <span style='color:red'> $component </span> <p>";
   }
@@ -34,12 +34,12 @@ function locationUrl($url)
  */
 function view($view, $isMenu = false)
 {
-  if (file_exists(__DIR__ . "\../view/$view.php")) {
+  if (file_exists(__DIR__ . "/../view/$view.blade.php")) {
     component('main/header');
     if (!$isMenu):
       component('main/nav');
     endif;
-    include_once __DIR__ . "\../view/$view.php";
+    include_once __DIR__ . "/../view/$view.blade.php";
     if (!$isMenu):
       component('main/footer');
     endif;
@@ -54,8 +54,8 @@ function view($view, $isMenu = false)
  */
 function router($router)
 {
-  if (file_exists(__DIR__ . "\../route/$router.router.php")) {
-    include __DIR__ . "\../route/$router.router.php";
+  if (file_exists(__DIR__ . "/../route/$router.router.php")) {
+    include __DIR__ . "/../route/$router.router.php";
   }
 }
 
@@ -164,8 +164,8 @@ function rouback($rouback = '404')
  */
 function controller($controller)
 {
-  if (file_exists(__DIR__ . "\../controller/$controller.Controller.php")) {
-    include_once __DIR__ . "\../controller/$controller.Controller.php";
+  if (file_exists(__DIR__ . "/../controller/$controller.Controller.php")) {
+    include_once __DIR__ . "/../controller/$controller.Controller.php";
   }
   exit();
 }
